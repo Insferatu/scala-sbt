@@ -11,52 +11,48 @@ This repository contains **Dockerfile** of [Scala](http://www.scala-lang.org) an
 ## Installation ##
 
 1. Install [Docker](https://www.docker.com)
-2. Pull [automated build](https://hub.docker.com/r/hseeberger/scala-sbt/) from public [Docker Hub Registry](https://registry.hub.docker.com):
+2. Pull [automated build](https://hub.docker.com/r/insferatu/scala-sbt/) from public [Docker Hub Registry](https://registry.hub.docker.com):
 ```
-docker pull hseeberger/scala-sbt:8u222_1.3.12_2.13.3
+docker pull insferatu/scala-sbt
 ```
 Alternatively, you can build an image from Dockerfile:
 (debian):
 ```
 docker build \
   --build-arg BASE_IMAGE_TAG="8u212-b04-jdk-stretch" \
-  --build-arg SBT_VERSION="1.3.12" \
-  --build-arg SCALA_VERSION="2.13.3" \
-  --build-arg USER_ID=1001 \
-  --build-arg GROUP_ID=1001 \
-  -t hseeberger/scala-sbt \
-  github.com/hseeberger/scala-sbt.git#:debian
+  --build-arg SBT_VERSION="1.2.8" \
+  --build-arg SCALA_VERSION="2.13.0" \
+  -t insferatu/scala-sbt \
+  github.com/insferatu/scala-sbt.git#:debian
 ```
 (oraclelinux7):
 ```
 docker build \
-  --build-arg BASE_IMAGE_TAG="11.0.2-jdk-oraclelinux7" \
-  --build-arg SBT_VERSION="1.3.12" \
-  --build-arg SCALA_VERSION="2.13.3" \
-  --build-arg USER_ID=1001 \
-  --build-arg GROUP_ID=1001 \
-  -t hseeberger/scala-sbt \
-  github.com/hseeberger/scala-sbt.git#:oracle
+  --build-arg BASE_IMAGE_TAG="12.0.1-jdk-oraclelinux7" \
+  --build-arg SBT_VERSION="1.2.8" \
+  --build-arg SCALA_VERSION="2.13.0" \
+  -t insferatu/scala-sbt \
+  github.com/insferatu/scala-sbt.git#:oracle
 ```
 
 ## Usage ##
 
 ```
-docker run -it --rm hseeberger/scala-sbt:8u222_1.3.12_2.13.3
+docker run -it --rm insferatu/scala-sbt
 ```
 
 ### Alternative commands ###
 The container contains `bash`, `scala` and `sbt`.
 
 ```
-docker run -it --rm hseeberger/scala-sbt:8u222_1.3.12_2.13.3 scala
+docker run -it --rm insferatu/scala-sbt scala
 ```
 
 ### Non-root ###
 The container is prepared to be used with a non-root user called `sbtuser`
 
 ```
-docker run -it --rm -u sbtuser -w /home/sbtuser hseeberger/scala-sbt:8u222_1.3.12_2.13.3
+docker run -it --rm -u sbtuser -w /home/sbtuser insferatu/scala-sbt
 ```
 
 ## Contribution policy ##
