@@ -18,6 +18,9 @@ ENV USER_ID ${USER_ID:-1001}
 ARG GROUP_ID 
 ENV GROUP_ID ${GROUP_ID:-1001}
 
+# Install git
+RUN yum -y install git
+
 # Install sbt
 RUN \
   curl -L -o sbt-$SBT_VERSION.rpm https://bintray.com/sbt/rpm/download_file?file_path=sbt-$SBT_VERSION.rpm && \
